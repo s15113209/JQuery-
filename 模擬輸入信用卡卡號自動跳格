@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <!-- 以下是整張信用卡資訊 -->
+                <div class="card p-3">
+                    <!-- 以下是卡號 -->
+                    <div class="form-row">
+                        <label for="inputEmail3" class="col-2 col-form-label">
+                            卡號
+                        </label>
+                        <div class="col-10">
+                            <div class="form-row">
+                                <!-- 第一格 -->
+                                <div class="col">
+                                    <input type="text"
+                                    class="form-control card-input" maxlength="4">
+                                </div>
+                                <!-- 第二格 -->
+                                <div class="col">
+                                    <input type="text"
+                                    class="form-control card-input" maxlength="4">
+                                </div>
+                                <!-- 第三格 -->
+                                <div class="col">
+                                    <input type="text"
+                                    class="form-control card-input" maxlength="4">
+                                </div>
+                                <!-- 第四格 -->
+                                <div class="col">
+                                    <input type="text"
+                                    class="form-control card-input" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 以下是到期日和驗證碼 -->
+                    <div class="form-row mt-2">
+                        <!-- 到期日 -->
+                        <label for="" class="col-2 col-form-label">
+                            到期日
+                        </label>
+                        <div class="col-4">
+                            <input type="text" class="form-control" 
+                            placeholder="mm/yy">
+                        </div>
+                        <!-- 驗證碼 -->
+                        <label for="" class="col-2 col-form-label">
+                            驗證碼
+                        </label>
+                        <div class="col-4">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <button class="btn btn-info">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script>
+            // 卡號的四個輸入格
+            $(".card-input").keyup(function(){
+                let maxLength=$(this).attr("maxlength")
+                let contentLength=$(this).val().length
+                // console.log(maxLength);
+
+                // 卡號輸入滿四字後跳至下一格
+                if(maxLength==contentLength){
+                    // closest(元素名)祖先元素(指定的) parent()父親元素(不用指定)
+                    // parent()父元素 + next() = 下一個父元素
+                    // find(元素名)尋找某個元素 + focus()移動焦點 = 找到指定元素並將焦點移到該處
+                    $(this).parent().next().find(":input").focus()
+                }
+            })
+        </script>
+</body>
+
+</html>
