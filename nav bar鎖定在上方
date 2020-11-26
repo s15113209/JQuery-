@@ -1,0 +1,12 @@
+    <script>
+        // offset()抓取指定元素的距離(離左上角)
+        let navbarPosition=$(".navbar").offset().top
+        $(window).scroll(function () {
+            let scrollTop = $(this).scrollTop()
+            if (scrollTop >= navbarPosition) {
+                $(".navbar").addClass("active")
+            } else {
+                $(".navbar").removeClass("active")
+            }
+        })
+    </script>
