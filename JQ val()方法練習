@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style></style>
+</head>
+  <body>
+      <div class="container">
+          <div class="py-2">
+              <button type="button" class="btn btn-primary" id=getVal>getVal</button>
+              <button type="button" class="btn btn-primary" id=setVal>setVal</button>
+              <button type="button" class="btn btn-primary" id=getselect>getcity</button>
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" id="account" placeholder="請輸入帳號">
+              <input type="text" class="form-control" id="password" placeholder="請輸入密碼">
+          </div>
+          <div class="form-group">
+            <select class="form-control" name="" id="select">
+                <option value="0">台北市</option>
+                <option value="1">新北市</option>
+                <option value="2">桃園市</option>
+            </select>
+        </div>
+          hi, <span id="showAccount"></span>
+          <div class="form-group">
+              <button id="submit" type="button" class="btn btn-primary">送出</button>
+          </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $("#getVal").click(function(){
+            let content =$("#input").val()      //val()取得輸入欄位的內容
+            console.log(content);
+        })
+        $("#setVal").click(function(){
+            $("#input").val("default content.")
+        })
+        $("#account").on("change keyup",function(){     //keyup class可即時顯示
+            let account=$(this).val()
+            $("#showAccount").text(account)
+        })
+        $("#submit").click(function(){
+            let data={
+                account:$("#account").val(),
+                password:$("#password").val()
+            }
+            console.log(data);
+        })
+        $("#getselect").click(function(){
+            let citycode=$("#select").val()
+            let cityname=$("#select option:selected").text()
+            // select中共有三座城市的名字 加入option:selected可以選中當前選擇的元素
+
+            // console.log(cityname);
+            // `${}中間可以塞入變數名稱`
+            console.log(`citycode is ${citycode}, name is ${cityname}`);
+        })
+    </script>
+</body>
+</html>
